@@ -11,6 +11,9 @@
 		491848071B5EC2A60050539D /* SlimeEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491848061B5EC2A50050539D /* SlimeEnemy.swift */; };
 		4918480F1B5ECE160050539D /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918480E1B5ECE160050539D /* Gameplay.swift */; };
 		491848111B5EF7BD0050539D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491848101B5EF7BD0050539D /* Level.swift */; };
+		4984920D1B696E9500785F75 /* LevelSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920C1B696E9500785F75 /* LevelSelect.swift */; };
+		4984920F1B69952600785F75 /* Gamestate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920E1B69952600785F75 /* Gamestate.swift */; };
+		4984921A1B6AE6C700785F75 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498492191B6AE6C700785F75 /* GameOver.swift */; };
 		5B121030197484FA004C1E1D /* MyGameActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* MyGameActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A046D7519E84C36004C4763 /* MainScene.swift */; };
@@ -156,6 +159,9 @@
 		491848061B5EC2A50050539D /* SlimeEnemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlimeEnemy.swift; path = Source/SlimeEnemy.swift; sourceTree = "<group>"; };
 		4918480E1B5ECE160050539D /* Gameplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		491848101B5EF7BD0050539D /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		4984920C1B696E9500785F75 /* LevelSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
+		4984920E1B69952600785F75 /* Gamestate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gamestate.swift; sourceTree = "<group>"; };
+		498492191B6AE6C700785F75 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -445,8 +451,11 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				4918480E1B5ECE160050539D /* Gameplay.swift */,
+				498492191B6AE6C700785F75 /* GameOver.swift */,
 				491848061B5EC2A50050539D /* SlimeEnemy.swift */,
+				4984920C1B696E9500785F75 /* LevelSelect.swift */,
 				491848041B5EC2410050539D /* Character.swift */,
+				4984920E1B69952600785F75 /* Gamestate.swift */,
 				491848101B5EF7BD0050539D /* Level.swift */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
@@ -827,8 +836,11 @@
 				B73789871807631A0076A88C /* main.m in Sources */,
 				491848111B5EF7BD0050539D /* Level.swift in Sources */,
 				4918480F1B5ECE160050539D /* Gameplay.swift in Sources */,
+				4984921A1B6AE6C700785F75 /* GameOver.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
+				4984920D1B696E9500785F75 /* LevelSelect.swift in Sources */,
 				491848051B5EC2410050539D /* Character.swift in Sources */,
+				4984920F1B69952600785F75 /* Gamestate.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				491848071B5EC2A60050539D /* SlimeEnemy.swift in Sources */,
 			);

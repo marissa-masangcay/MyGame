@@ -9,5 +9,11 @@
 import UIKit
 
 class Level: CCNode {
-    weak var startPoint: CCNode!
+    
+    
+    var levelNumber = 0
+
+    
+    
+    
 }
