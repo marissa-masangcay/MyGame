@@ -168,7 +168,7 @@
 						<key>displayName</key>
 						<string>levelNode</string>
 						<key>memberVarAssignmentName</key>
-						<string>levelNode</string>
+						<string></string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
@@ -246,7 +246,7 @@
 						<key>displayName</key>
 						<string>character</string>
 						<key>memberVarAssignmentName</key>
-						<string>mainCharacter</string>
+						<string></string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
@@ -475,7 +475,7 @@
 				<key>displayName</key>
 				<string>CCPhysicsNode</string>
 				<key>memberVarAssignmentName</key>
-				<string>gamePhysicsNode</string>
+				<string></string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>

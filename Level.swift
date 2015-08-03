@@ -10,10 +10,13 @@ import UIKit
 
 class Level: CCNode {
     
-    
-    var levelNumber = 0
+    weak var flag: CCNode!
+    weak var slimeEnemyNode: CCNode!
 
+    var levelNumber = 0
+    var timeOfLevel = 0
     
-    
-    
+    func didLoadFromCCB() {
+        flag.physicsBody.sensor = true
+    }
 }

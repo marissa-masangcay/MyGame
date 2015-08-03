@@ -47,9 +47,9 @@
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string></string>
+				<string>FullHeart</string>
 				<key>displayName</key>
-				<string>Asteroid@4x</string>
+				<string>fullHeart</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -61,19 +61,19 @@
 					<key>allowsRotation</key>
 					<true/>
 					<key>bodyShape</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>collisionCategories</key>
 					<array/>
 					<key>collisionMask</key>
 					<array/>
 					<key>collisionType</key>
-					<string></string>
+					<string>fullHeart</string>
 					<key>cornerRadius</key>
-					<real>0.0</real>
+					<real>16</real>
 					<key>density</key>
 					<real>1</real>
 					<key>dynamic</key>
-					<true/>
+					<false/>
 					<key>elasticity</key>
 					<real>0.30000001192092896</real>
 					<key>friction</key>
@@ -81,43 +81,12 @@
 					<key>points</key>
 					<array>
 						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-						<array>
-							<real>0.0</real>
-							<real>53</real>
-						</array>
-						<array>
-							<real>51</real>
-							<real>53</real>
-						</array>
-						<array>
-							<real>51</real>
-							<real>0.0</real>
+							<real>13</real>
+							<real>11</real>
 						</array>
 					</array>
 					<key>polygons</key>
-					<array>
-						<array>
-							<array>
-								<real>51</real>
-								<real>0.0</real>
-							</array>
-							<array>
-								<real>51</real>
-								<real>53</real>
-							</array>
-							<array>
-								<real>0.0</real>
-								<real>53</real>
-							</array>
-							<array>
-								<real>0.0</real>
-								<real>0.0</real>
-							</array>
-						</array>
-					</array>
+					<array/>
 				</dict>
 				<key>properties</key>
 				<array>
@@ -136,8 +105,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>-12</real>
-							<real>5</real>
+							<real>0.0</real>
+							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -161,8 +130,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.44918212294578552</real>
-							<real>0.4681069552898407</real>
+							<real>1</real>
+							<real>1</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -175,7 +144,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/Asteroid@4x.png</string>
+							<string>Game Assets/hud_heartFull@4x.png</string>
 						</array>
 					</dict>
 					<dict>

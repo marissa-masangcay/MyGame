@@ -7,86 +7,99 @@
 //
 
 
+//Implement a continue button
+//Use battery icon
+
+
 import Foundation
 import UIKit
 import CoreMotion
 
-
-enum State {
-    case Jumping
-    case Running
-    case Walking
-}
-
-
-class Gameplay: CCNode, CCPhysicsCollisionDelegate {
+class Gameplay: CCNode {
     
     weak var gamePhysicsNode: CCPhysicsNode!
     weak var levelNode: CCNode!
-    //weak var lifeBar: CCSprite!
 
-    
-    var state: State = .Jumping
     var mainCharacter: Character!
-    var sinceTouch: CCTime = 0
-    var levelToLoad: CCNode?
+    var currentLevel: CCNode?
+
     var gameOver = false
-    var timer = NSTimer()
-    var numberOfSeconds = NSTimeInterval.abs(2.0)
-    var currentLevel = Gamestate.currentLevel
     
-    var obstacles : [CCNode] = []
+    var timer = NSTimer()
+    var gameOverTimer = NSTimer()
+
+    let spawnRate: Double = 5.0
+    var characterRemoved: Bool = false
+    
+    
+    var currentLevelGamePlay: Int = 1
+    var levelToContinue: Int = 1
+    
+    
+    var levels : [Int] = []
+    
     
     let manager = CMMotionManager()
     let queue = NSOperationQueue.mainQueue()
     let screen = UIScreen.mainScreen().applicationFrame.size
     
     
-    var timeLeft: Float = 10 {
+    var timeLeft: Float = 1000 {
         didSet {
-            timeLeft = max(min(timeLeft, 10), 0)
+            timeLeft = max(min(timeLeft, 100), 0)
             //lifeBar.scaleX = timeLeft / Float(10)
         }
     }
     
     
-    
+    // MARK: ViewLifeCycle
     func didLoadFromCCB()
     {
-        userInteractionEnabled = true
-        
+        currentLevelGamePlay = Gamestate.currentLevel
+
         gamePhysicsNode.collisionDelegate = self
-        
+        gamePhysicsNode.debugDraw = false
+        userInteractionEnabled = true
+    
         setupDeviceMotion()
+        loadLevel()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(numberOfSeconds, target:self, selector: Selector("spawnNewObstacles"), userInfo: nil, repeats: true)
+        self.schedule("spawnNewObstacles", interval: spawnRate)
+
         
-        Gamestate.currentLevel = currentLevel
+//        if(Gamestate.resetGame)
+//        {
+//            Gamestate.currentLevel = currentLevelGamePlay
+//        }
+//        else if(Gamestate.startFromBeginning)
+//        {
+//            Gamestate.currentLevel = 1
+//        }
         
 
     }
     
-    //RANDOM GENERATOR: arc4random_uniform(n) for #'s between 0 and n-1
     
     func spawnNewObstacles()
     {
-        let randomXPosition = Int(arc4random_uniform(300))
-        
-        // create and add a new obstacle
-        let obstacle = CCBReader.load("Asteroid")
-        obstacle.positionInPoints = CGPoint(x: randomXPosition, y: (Int(mainCharacter.position.y)+Int(screen.height)))
-        gamePhysicsNode.addChild(obstacle)
+//        let randomXPosition = Int(arc4random_uniform(300))
+//        
+//        // create and add a new obstacle
+//        let obstacle = CCBReader.load("Obstacle")
+//        obstacle.positionInPoints = CGPoint(x: randomXPosition, y: (Int(mainCharacter.position.y)+Int(screen.height)))
+//        gamePhysicsNode.addChild(obstacle)
 
     }
     
     
     func loadLevel()
     {
+        
         var levelLoaded: String = ("Levels/Level\(Gamestate.currentLevel)")
-        levelToLoad = CCBReader.load(levelLoaded) as! Level
-        levelToLoad!.position = ccp(0, 0)
-        levelNode.addChild(levelToLoad)
-        levelNode = levelToLoad
+        currentLevel = CCBReader.load(levelLoaded) as! Level
+        currentLevel!.position = ccp(0, 0)
+        levelNode.addChild(currentLevel)
+        levelNode = currentLevel
         
         mainCharacter = CCBReader.load("MainCharacter") as! Character
         mainCharacter.positionInPoints = ccp(150, 150)
@@ -97,43 +110,46 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     
     override func onEnter()
     {
+        
         super.onEnter()
         
-        loadLevel()
         
-        contentSizeInPoints = levelToLoad!.contentSizeInPoints
+        contentSizeInPoints = currentLevel!.contentSizeInPoints
         let actionFollow = CCActionFollow(target: mainCharacter, worldBoundary: levelNode.boundingBox())
         runAction(actionFollow)
+        
+        
+//        for i in (0...2)
+//        {
+//            var count: Int = 0
+//            levels.append(count)
+//            count++
+//        }
+        
+        
     }
     
     
     func triggerGameOver() {
-        //gameOver = true
         var scene = CCBReader.loadAsScene("GameOver")
         CCDirector.sharedDirector().presentScene(scene)
+        Gamestate.resetGame = false
+        Gamestate.startFromBeginning = false
         
     }
     
     
     func restart() {
+        Gamestate.currentLevel = Gamestate.currentLevel
         var scene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().presentScene(scene)
     }
     
-    
-    func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, slime: SlimeEnemy!, character: Character!)
+
+    func triggerLevelCompleted()
     {
-        let energy = pair.totalKineticEnergy
-        
-        if energy > 5000 {
-            slimeEnemyRemoved(slime)
-        }
-        else{
-            characterRemoved(character)
-            //triggerGameOver()
-        }
-        
-        
+        var scene = CCBReader.loadAsScene("LevelCompleted")
+        CCDirector.sharedDirector().presentScene(scene)
     }
     
     
@@ -147,9 +163,11 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         characterExplosion.position = character.position;
         // add the particle effect to the same node the character is on
         character.parent.addChild(characterExplosion)
-        // finally, remove the character from the level
+        //Remove the character from the level
         character.removeFromParent()
     }
+    
+
     
     
     
@@ -167,7 +185,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         enemy.removeFromParent()
     }
 
-    
+    // MARK: TouchHandling
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!)
     {
         if gameOver { return }
@@ -204,25 +222,96 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
         {
             mainCharacter.position = CGPoint(x: mainCharacter.position.x, y: levelNode.boundingBox().height-35)
         }
+        
+//        println("time left \(timeLeft)")
+//        println()
+        
     }
    
     
-    //add velocity clamp for jumping and falling
     
     func setupDeviceMotion() {
         //make sure device has motion capabilities
         if manager.deviceMotionAvailable
         {
             //set the number of times the device should update motion data (in seconds)
-            manager.deviceMotionUpdateInterval = 0.01
+            manager.deviceMotionUpdateInterval = 0.1
             //setup callback for everytime the motion data is updated
             manager.startDeviceMotionUpdatesToQueue(queue, withHandler: { (motion: CMDeviceMotion!, error: NSError!) -> Void in
                 ///checking device attitude will allow us to check devices current orientation in 3D space
                 var attitude = motion.attitude
-                self.mainCharacter.position.x += CGFloat(attitude.roll * 3)
+//                println("roll: \(attitude.roll)")
+//                println("velocity: \(self.mainCharacter.physicsBody.velocity)")
+//                println()
+                
+                //TODO: Fine tune multiplier and clamping parameters
+                let multiplier: Double = 600
+                let velocityY = self.mainCharacter.physicsBody.velocity.y
+                var velocityX = Float(attitude.roll * multiplier)
+                
+                let minVelocityX: Float = -400
+                let maxVelocityX: Float = 400
+                velocityX = clampf(Float(velocityX), minVelocityX, maxVelocityX)
+                
+                self.mainCharacter.physicsBody.velocity = ccp(CGFloat(velocityX), velocityY)
             })
         }
     }
 
+}
 
+// MARK: CCPhysicsCollisionDelegate
+extension Gameplay: CCPhysicsCollisionDelegate {
+    
+    
+    func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, slime: SlimeEnemy!, character: Character!)
+    {
+        let energy = pair.totalKineticEnergy
+        
+        if energy > 500000 {
+            slimeEnemyRemoved(slime)
+        }
+        else{
+            characterRemoved(character)
+            scheduleOnce("triggerGameOver", delay: 0.5)
+            
+        }
+    }
+    
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, obstacle: Obstacle!, character: Character!) -> ObjCBool
+    {
+        characterRemoved(character)
+        scheduleOnce("triggerGameOver", delay: 0.5)
+        return true
+    }
+    
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, flag: Flag!, character: Character!) -> ObjCBool
+    {
+        triggerLevelCompleted()
+        return true
+        
+    }
+    
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, halfHeart: HalfHeart!, character: Character!) -> ObjCBool
+    {
+        timeLeft += Float(1.0)
+        character.animationManager.runAnimationsForSequenceNamed("jump")
+        halfHeart.removeFromParent()
+        return true
+    }
+    
+    
+    func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, fullHeart: FullHeart!, character: Character!) -> ObjCBool
+    {
+        timeLeft += Float(2.0)
+        character.animationManager.runAnimationsForSequenceNamed("jump")
+        fullHeart.removeFromParent()
+        return true
+    }
+    
+    
+    
 }

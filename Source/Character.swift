@@ -8,11 +8,17 @@
 
 //import Cocoa
 
+enum State {
+    case Jumping
+    case Running
+    case Walking
+    case Idle
+}
+
 class Character: CCSprite {
     
-    var jumpPower: CGFloat = 2000
-    var center: CGPoint?
-    
+    var state: State = .Idle
+    let jumpPower: CGFloat = 2000
     
     func jump()
     {

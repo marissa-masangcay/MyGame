@@ -8,7 +8,7 @@ class MainScene: CCNode
     
     func play()
     {
-        Gamestate.currentLevel = 1
+//        Gamestate.startFromBeginning = true
         let gameplayScene = CCBReader.loadAsScene("Gameplay")
         CCDirector.sharedDirector().presentScene(gameplayScene)
     }

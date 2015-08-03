@@ -11,10 +11,7 @@
 class SlimeEnemy: CCSprite {
     
     
-//    func didLoadFromCCB()
-//    {
-//        println("Slime created!")
-//    }
+
     
 
 }

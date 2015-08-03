@@ -11,6 +11,11 @@
 		491848071B5EC2A60050539D /* SlimeEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491848061B5EC2A50050539D /* SlimeEnemy.swift */; };
 		4918480F1B5ECE160050539D /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918480E1B5ECE160050539D /* Gameplay.swift */; };
 		491848111B5EF7BD0050539D /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491848101B5EF7BD0050539D /* Level.swift */; };
+		494FD49C1B6C03C9001041FA /* LevelCompleted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD49B1B6C03C9001041FA /* LevelCompleted.swift */; };
+		494FD4A21B6C1126001041FA /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4A11B6C1126001041FA /* Flag.swift */; };
+		494FD4A81B6C2BF0001041FA /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4A71B6C2BF0001041FA /* Obstacle.swift */; };
+		494FD4AB1B6FF9E0001041FA /* FullHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AA1B6FF9E0001041FA /* FullHeart.swift */; };
+		494FD4AD1B6FFA28001041FA /* HalfHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AC1B6FFA27001041FA /* HalfHeart.swift */; };
 		4984920D1B696E9500785F75 /* LevelSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920C1B696E9500785F75 /* LevelSelect.swift */; };
 		4984920F1B69952600785F75 /* Gamestate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920E1B69952600785F75 /* Gamestate.swift */; };
 		4984921A1B6AE6C700785F75 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498492191B6AE6C700785F75 /* GameOver.swift */; };
@@ -159,6 +164,11 @@
 		491848061B5EC2A50050539D /* SlimeEnemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlimeEnemy.swift; path = Source/SlimeEnemy.swift; sourceTree = "<group>"; };
 		4918480E1B5ECE160050539D /* Gameplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
 		491848101B5EF7BD0050539D /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		494FD49B1B6C03C9001041FA /* LevelCompleted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCompleted.swift; sourceTree = "<group>"; };
+		494FD4A11B6C1126001041FA /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		494FD4A71B6C2BF0001041FA /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
+		494FD4AA1B6FF9E0001041FA /* FullHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullHeart.swift; sourceTree = "<group>"; };
+		494FD4AC1B6FFA27001041FA /* HalfHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfHeart.swift; sourceTree = "<group>"; };
 		4984920C1B696E9500785F75 /* LevelSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
 		4984920E1B69952600785F75 /* Gamestate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gamestate.swift; sourceTree = "<group>"; };
 		498492191B6AE6C700785F75 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
@@ -451,7 +461,12 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				4918480E1B5ECE160050539D /* Gameplay.swift */,
+				494FD4A71B6C2BF0001041FA /* Obstacle.swift */,
+				494FD4AC1B6FFA27001041FA /* HalfHeart.swift */,
+				494FD4AA1B6FF9E0001041FA /* FullHeart.swift */,
 				498492191B6AE6C700785F75 /* GameOver.swift */,
+				494FD4A11B6C1126001041FA /* Flag.swift */,
+				494FD49B1B6C03C9001041FA /* LevelCompleted.swift */,
 				491848061B5EC2A50050539D /* SlimeEnemy.swift */,
 				4984920C1B696E9500785F75 /* LevelSelect.swift */,
 				491848041B5EC2410050539D /* Character.swift */,
@@ -833,12 +848,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494FD49C1B6C03C9001041FA /* LevelCompleted.swift in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				491848111B5EF7BD0050539D /* Level.swift in Sources */,
 				4918480F1B5ECE160050539D /* Gameplay.swift in Sources */,
 				4984921A1B6AE6C700785F75 /* GameOver.swift in Sources */,
+				494FD4A81B6C2BF0001041FA /* Obstacle.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
+				494FD4AD1B6FFA28001041FA /* HalfHeart.swift in Sources */,
+				494FD4AB1B6FF9E0001041FA /* FullHeart.swift in Sources */,
 				4984920D1B696E9500785F75 /* LevelSelect.swift in Sources */,
+				494FD4A21B6C1126001041FA /* Flag.swift in Sources */,
 				491848051B5EC2410050539D /* Character.swift in Sources */,
 				4984920F1B69952600785F75 /* Gamestate.swift in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,

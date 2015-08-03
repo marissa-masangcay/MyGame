@@ -8,4 +8,7 @@
 
 class Gamestate {
     static var currentLevel: Int = 1
+    static var levelToSave: Int = 0
+    static var resetGame: Bool = false
+    static var startFromBeginning: Bool = false
 }
