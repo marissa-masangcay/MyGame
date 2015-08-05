@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/purple@4x.png</string>
+							<string>Game Assets/purpleBackground.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -146,8 +146,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -491,7 +489,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Game Assets/buttons-50@4x.png</string>
+									<string>Game Assets/buttonsNormalState.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -502,7 +500,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonHighlighted.png</string>
+									<string>Game Assets/buttonsPressed.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -689,6 +687,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -817,7 +817,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Game Assets/buttons-50@4x.png</string>
+									<string>Game Assets/buttonsNormalState.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -828,7 +828,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonHighlighted.png</string>
+									<string>Game Assets/buttonsPressed.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1143,7 +1143,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Game Assets/buttons-50@4x.png</string>
+									<string>Game Assets/buttonsNormalState.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1154,7 +1154,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>ccbResources/ccbButtonHighlighted.png</string>
+									<string>Game Assets/buttonsPressed.png</string>
 								</array>
 							</dict>
 							<dict>

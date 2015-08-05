@@ -19,16 +19,19 @@ class Gameplay: CCNode {
     
     weak var gamePhysicsNode: CCPhysicsNode!
     weak var levelNode: CCNode!
+    weak var contentNode: CCNode!
+    weak var timerLabel: CCLabelTTF!
+   
 
     var mainCharacter: Character!
     var currentLevel: CCNode?
-
+    
     var gameOver = false
     
     var timer = NSTimer()
     var gameOverTimer = NSTimer()
 
-    let spawnRate: Double = 5.0
+    let spawnRate: Double = 2.0
     var characterRemoved: Bool = false
     
     
@@ -36,7 +39,7 @@ class Gameplay: CCNode {
     var levelToContinue: Int = 1
     
     
-    var levels : [Int] = []
+    var levelTimes : [Int] = [10, 7, 13]
     
     
     let manager = CMMotionManager()
@@ -44,12 +47,13 @@ class Gameplay: CCNode {
     let screen = UIScreen.mainScreen().applicationFrame.size
     
     
-    var timeLeft: Float = 1000 {
+    var timeLeft: Float = 100 {
         didSet {
             timeLeft = max(min(timeLeft, 100), 0)
-            //lifeBar.scaleX = timeLeft / Float(10)
+            timerLabel.string = "\(Int(timeLeft))"
         }
     }
+    
     
     
     // MARK: ViewLifeCycle
@@ -65,29 +69,7 @@ class Gameplay: CCNode {
         loadLevel()
         
         self.schedule("spawnNewObstacles", interval: spawnRate)
-
         
-//        if(Gamestate.resetGame)
-//        {
-//            Gamestate.currentLevel = currentLevelGamePlay
-//        }
-//        else if(Gamestate.startFromBeginning)
-//        {
-//            Gamestate.currentLevel = 1
-//        }
-        
-
-    }
-    
-    
-    func spawnNewObstacles()
-    {
-//        let randomXPosition = Int(arc4random_uniform(300))
-//        
-//        // create and add a new obstacle
-//        let obstacle = CCBReader.load("Obstacle")
-//        obstacle.positionInPoints = CGPoint(x: randomXPosition, y: (Int(mainCharacter.position.y)+Int(screen.height)))
-//        gamePhysicsNode.addChild(obstacle)
 
     }
     
@@ -96,6 +78,9 @@ class Gameplay: CCNode {
     {
         
         var levelLoaded: String = ("Levels/Level\(Gamestate.currentLevel)")
+        
+        timeLeft = Float(levelTimes[Gamestate.currentLevel-1])
+        
         currentLevel = CCBReader.load(levelLoaded) as! Level
         currentLevel!.position = ccp(0, 0)
         levelNode.addChild(currentLevel)
@@ -105,37 +90,26 @@ class Gameplay: CCNode {
         mainCharacter.positionInPoints = ccp(150, 150)
         levelNode.addChild(mainCharacter)
         
+        
     }
     
     
     override func onEnter()
     {
-        
         super.onEnter()
-        
         
         contentSizeInPoints = currentLevel!.contentSizeInPoints
         let actionFollow = CCActionFollow(target: mainCharacter, worldBoundary: levelNode.boundingBox())
         runAction(actionFollow)
-        
-        
-//        for i in (0...2)
-//        {
-//            var count: Int = 0
-//            levels.append(count)
-//            count++
-//        }
-        
-        
     }
     
     
     func triggerGameOver() {
         var scene = CCBReader.loadAsScene("GameOver")
         CCDirector.sharedDirector().presentScene(scene)
+        
         Gamestate.resetGame = false
         Gamestate.startFromBeginning = false
-        
     }
     
     
@@ -153,6 +127,18 @@ class Gameplay: CCNode {
     }
     
     
+    func spawnNewObstacles()
+    {
+        let randomXPosition = Int(arc4random_uniform(300))
+        
+        // create and add a new obstacle
+        let obstacle = CCBReader.load("Obstacle")
+        obstacle.positionInPoints = CGPoint(x: randomXPosition, y: (Int(mainCharacter.position.y)+Int(screen.height)))
+        gamePhysicsNode.addChild(obstacle)
+        
+    }
+    
+    
     func characterRemoved(character: Character)
     {
         // load particle effect
@@ -162,14 +148,12 @@ class Gameplay: CCNode {
         // place the particle effect on the characters position
         characterExplosion.position = character.position;
         // add the particle effect to the same node the character is on
-        character.parent.addChild(characterExplosion)
+        self.addChild(characterExplosion)
         //Remove the character from the level
         character.removeFromParent()
     }
     
 
-    
-    
     
     func slimeEnemyRemoved(enemy: SlimeEnemy)
     {
@@ -180,7 +164,7 @@ class Gameplay: CCNode {
         //place the particle effect on the enemys position
         enemyExplosion.position = enemy.position;
         //add the particle effect to the same node the character is on
-        enemy.parent.addChild(enemyExplosion)
+        self.addChild(enemyExplosion)
         //finally, remove the enemy from the level
         enemy.removeFromParent()
     }
@@ -198,15 +182,20 @@ class Gameplay: CCNode {
         if gameOver { return }
         
         timeLeft -= Float(delta)
-        if timeLeft == 0 {
+        if timeLeft < 1 {
             triggerGameOver()
         }
         
+        timerLabel.positionInPoints = ccp(screen.width/2, (mainCharacter.position.y+150))
+        
+        if(timerLabel.position.y>levelNode.boundingBox().height)
+        {
+            timerLabel.position = ccp(timerLabel.position.x, levelNode.boundingBox().height-20)
+        }
+        
+        
         var newX = mainCharacter.position.x
         var newY = mainCharacter.position.y
-        
-        var contentSizeWidth = contentSize.width
-        var contentSizeHeight = contentSize.height
         
         if(newX>levelNode.boundingBox().width)
         {
@@ -240,17 +229,19 @@ class Gameplay: CCNode {
             manager.startDeviceMotionUpdatesToQueue(queue, withHandler: { (motion: CMDeviceMotion!, error: NSError!) -> Void in
                 ///checking device attitude will allow us to check devices current orientation in 3D space
                 var attitude = motion.attitude
+                
+                
 //                println("roll: \(attitude.roll)")
 //                println("velocity: \(self.mainCharacter.physicsBody.velocity)")
 //                println()
                 
                 //TODO: Fine tune multiplier and clamping parameters
-                let multiplier: Double = 600
+                let multiplier: Double = 600.00
                 let velocityY = self.mainCharacter.physicsBody.velocity.y
                 var velocityX = Float(attitude.roll * multiplier)
                 
-                let minVelocityX: Float = -400
-                let maxVelocityX: Float = 400
+                let minVelocityX: Float = -400.00
+                let maxVelocityX: Float = 400.00
                 velocityX = clampf(Float(velocityX), minVelocityX, maxVelocityX)
                 
                 self.mainCharacter.physicsBody.velocity = ccp(CGFloat(velocityX), velocityY)
@@ -268,7 +259,7 @@ extension Gameplay: CCPhysicsCollisionDelegate {
     {
         let energy = pair.totalKineticEnergy
         
-        if energy > 500000 {
+        if energy > 50000 {
             slimeEnemyRemoved(slime)
         }
         else{
@@ -311,6 +302,18 @@ extension Gameplay: CCPhysicsCollisionDelegate {
         fullHeart.removeFromParent()
         return true
     }
+    
+    
+    func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, spikes: Spikes!, character: Character!)
+    {
+        characterRemoved(character)
+        scheduleOnce("triggerGameOver", delay: 0.5)
+    }
+    
+    
+    
+    
+    
     
     
     

@@ -12,4 +12,5 @@ import Foundation
 class Obstacle: CCNode
 {
 
+    
 }

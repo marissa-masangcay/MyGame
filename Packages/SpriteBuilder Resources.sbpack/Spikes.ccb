@@ -45,36 +45,7 @@
 				<key>animatedProperties</key>
 				<dict>
 					<key>0</key>
-					<dict>
-						<key>spriteFrame</key>
-						<dict>
-							<key>keyframes</key>
-							<array>
-								<dict>
-									<key>easing</key>
-									<dict>
-										<key>type</key>
-										<integer>0</integer>
-									</dict>
-									<key>name</key>
-									<string>spriteFrame</string>
-									<key>time</key>
-									<real>0.0</real>
-									<key>type</key>
-									<integer>7</integer>
-									<key>value</key>
-									<array>
-										<string>Game Assets/purpleFlag.png</string>
-										<string>Use regular file</string>
-									</array>
-								</dict>
-							</array>
-							<key>name</key>
-							<string>spriteFrame</string>
-							<key>type</key>
-							<integer>7</integer>
-						</dict>
-					</dict>
+					<dict/>
 				</dict>
 				<key>baseClass</key>
 				<string>CCSprite</string>
@@ -83,7 +54,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>flag</string>
+				<string>Spikes</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -106,7 +77,7 @@
 						<key>value</key>
 						<array>
 							<real>0.0</real>
-							<real>0.0</real>
+							<real>9</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -130,18 +101,13 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.55897700786590576</real>
-							<real>0.68185079097747803</real>
+							<real>1.2869163751602173</real>
+							<real>0.89493781328201294</real>
 							<false/>
 							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>
-						<key>baseValue</key>
-						<array>
-							<string>Game Assets/purpleFlag.png</string>
-							<string>Use regular file</string>
-						</array>
 						<key>name</key>
 						<string>spriteFrame</string>
 						<key>type</key>
@@ -149,7 +115,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/purpleFlag.png</string>
+							<string>Game Assets/Spikes.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -190,7 +156,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>Flag</string>
+		<string>Spikes</string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
@@ -210,7 +176,7 @@
 			<key>collisionMask</key>
 			<array/>
 			<key>collisionType</key>
-			<string>flag</string>
+			<string>spikes</string>
 			<key>cornerRadius</key>
 			<real>0.0</real>
 			<key>density</key>
@@ -224,58 +190,92 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>-7.886749267578125</real>
-					<real>-16.308609008789062</real>
+					<real>-20.753936767578125</real>
+					<real>-5.2109527587890625</real>
 				</array>
 				<array>
-					<real>-8.300811767578125</real>
-					<real>11.433578491210938</real>
+					<real>-13.445343017578125</real>
+					<real>8.6210784912109375</real>
 				</array>
 				<array>
-					<real>5.484344482421875</real>
-					<real>7.6913909912109375</real>
+					<real>-8.183624267578125</real>
+					<real>-0.7265777587890625</real>
 				</array>
 				<array>
-					<real>7.511688232421875</real>
-					<real>-4.2187652587890625</real>
+					<real>-0.617218017578125</real>
+					<real>12.496078491210938</real>
 				</array>
 				<array>
-					<real>-1.386749267578125</real>
-					<real>-5.3164215087890625</real>
+					<real>4.691375732421875</real>
+					<real>-1.9414215087890625</real>
+				</array>
+				<array>
+					<real>17.085906982421875</real>
+					<real>10.234359741210938</real>
+				</array>
+				<array>
+					<real>22.26165771484375</real>
+					<real>-5.3789215087890625</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>-1.386749267578125</real>
-						<real>-5.3164215087890625</real>
+						<real>3.6037089824676514</real>
+						<real>-5.3060650825500488</real>
 					</array>
 					<array>
-						<real>7.511688232421875</real>
-						<real>-4.2187652587890625</real>
+						<real>22.26165771484375</real>
+						<real>-5.3789215087890625</real>
 					</array>
 					<array>
-						<real>5.484344482421875</real>
-						<real>7.6913909912109375</real>
+						<real>17.085906982421875</real>
+						<real>10.234359741210938</real>
+					</array>
+					<array>
+						<real>4.691375732421875</real>
+						<real>-1.9414215087890625</real>
 					</array>
 				</array>
 				<array>
 					<array>
-						<real>5.484344482421875</real>
-						<real>7.6913909912109375</real>
+						<real>-8.183624267578125</real>
+						<real>-0.7265777587890625</real>
 					</array>
 					<array>
-						<real>-8.300811767578125</real>
-						<real>11.433578491210938</real>
+						<real>-13.445343017578125</real>
+						<real>8.6210784912109375</real>
 					</array>
 					<array>
-						<real>-7.886749267578125</real>
-						<real>-16.308609008789062</real>
+						<real>-20.753936767578125</real>
+						<real>-5.2109527587890625</real>
 					</array>
 					<array>
-						<real>-1.386749267578125</real>
-						<real>-5.3164215087890625</real>
+						<real>-8.1990900039672852</real>
+						<real>-5.2599773406982422</real>
+					</array>
+				</array>
+				<array>
+					<array>
+						<real>-8.1990900039672852</real>
+						<real>-5.2599773406982422</real>
+					</array>
+					<array>
+						<real>3.6037089824676514</real>
+						<real>-5.3060650825500488</real>
+					</array>
+					<array>
+						<real>4.691375732421875</real>
+						<real>-1.9414215087890625</real>
+					</array>
+					<array>
+						<real>-0.617218017578125</real>
+						<real>12.496078491210938</real>
+					</array>
+					<array>
+						<real>-8.183624267578125</real>
+						<real>-0.7265777587890625</real>
 					</array>
 				</array>
 			</array>

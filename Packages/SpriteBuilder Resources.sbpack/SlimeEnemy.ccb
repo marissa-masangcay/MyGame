@@ -57,7 +57,7 @@
 							<integer>7</integer>
 							<key>value</key>
 							<array>
-								<string>Game Assets/slime@4x.png</string>
+								<string>Game Assets/slime.png</string>
 								<string>Use regular file</string>
 							</array>
 						</dict>
@@ -75,7 +75,7 @@
 							<integer>7</integer>
 							<key>value</key>
 							<array>
-								<string>Game Assets/slime_walk@4x.png</string>
+								<string>Game Assets/slimeWalk.png</string>
 								<string>Use regular file</string>
 							</array>
 						</dict>
@@ -88,12 +88,12 @@
 							<key>name</key>
 							<string>spriteFrame</string>
 							<key>time</key>
-							<real>0.5</real>
+							<real>0.46666666865348816</real>
 							<key>type</key>
 							<integer>7</integer>
 							<key>value</key>
 							<array>
-								<string>Game Assets/slime@4x.png</string>
+								<string>Game Assets/slime.png</string>
 								<string>Use regular file</string>
 							</array>
 						</dict>
@@ -106,12 +106,12 @@
 							<key>name</key>
 							<string>spriteFrame</string>
 							<key>time</key>
-							<real>0.76666665077209473</real>
+							<real>0.73333334922790527</real>
 							<key>type</key>
 							<integer>7</integer>
 							<key>value</key>
 							<array>
-								<string>Game Assets/slime_walk@4x.png</string>
+								<string>Game Assets/slimeWalk.png</string>
 								<string>Use regular file</string>
 							</array>
 						</dict>
@@ -129,7 +129,7 @@
 							<integer>7</integer>
 							<key>value</key>
 							<array>
-								<string>Game Assets/slime@4x.png</string>
+								<string>Game Assets/slime.png</string>
 								<string>Use regular file</string>
 							</array>
 						</dict>
@@ -148,9 +148,9 @@
 		<key>customClass</key>
 		<string>SlimeEnemy</string>
 		<key>displayName</key>
-		<string>CCSprite</string>
-		<key>memberVarAssignmentName</key>
 		<string>slimeEnemy</string>
+		<key>memberVarAssignmentName</key>
+		<string></string>
 		<key>memberVarAssignmentType</key>
 		<integer>1</integer>
 		<key>physicsBody</key>
@@ -238,7 +238,7 @@
 			<dict>
 				<key>baseValue</key>
 				<array>
-					<string>Game Assets/slime@4x.png</string>
+					<string>Game Assets/slime.png</string>
 					<string>Use regular file</string>
 				</array>
 				<key>name</key>
@@ -248,7 +248,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>Game Assets/slime@4x.png</string>
+					<string>Game Assets/slime.png</string>
 				</array>
 			</dict>
 			<dict>
@@ -383,7 +383,7 @@
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
-			<real>272.27386474609375</real>
+			<real>122.37921142578125</real>
 			<key>sequenceId</key>
 			<integer>1</integer>
 			<key>soundChannel</key>

@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>25</integer>
+	<integer>29</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -112,7 +112,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/purple@4x.png</string>
+							<string>Game Assets/purpleBackground.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -231,68 +231,6 @@
 									<false/>
 									<integer>0</integer>
 								</array>
-							</dict>
-						</array>
-					</dict>
-					<dict>
-						<key>UUID</key>
-						<integer>16</integer>
-						<key>baseClass</key>
-						<string>CCBFile</string>
-						<key>children</key>
-						<array/>
-						<key>customClass</key>
-						<string></string>
-						<key>displayName</key>
-						<string>character</string>
-						<key>memberVarAssignmentName</key>
-						<string></string>
-						<key>memberVarAssignmentType</key>
-						<integer>1</integer>
-						<key>properties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>name</string>
-								<key>type</key>
-								<string>StringSimple</string>
-								<key>value</key>
-								<string></string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>position</string>
-								<key>type</key>
-								<string>Position</string>
-								<key>value</key>
-								<array>
-									<real>-249.873291015625</real>
-									<real>-415.51800537109375</real>
-									<integer>0</integer>
-									<integer>0</integer>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>scale</string>
-								<key>type</key>
-								<string>ScaleLock</string>
-								<key>value</key>
-								<array>
-									<real>1.7497868537902832</real>
-									<real>1.7120245695114136</real>
-									<false/>
-									<integer>0</integer>
-								</array>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>ccbFile</string>
-								<key>type</key>
-								<string>CCBFile</string>
-								<key>value</key>
-								<string>MainCharacter.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -468,6 +406,70 @@
 								<array/>
 							</dict>
 						</array>
+					</dict>
+					<dict>
+						<key>UUID</key>
+						<integer>28</integer>
+						<key>baseClass</key>
+						<string>CCBFile</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>Character</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>1</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>name</string>
+								<key>type</key>
+								<string>StringSimple</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>-237.33956909179688</real>
+									<real>-393.54776000976562</real>
+									<integer>0</integer>
+									<integer>0</integer>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>1.7033119201660156</real>
+									<real>1.4838124513626099</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccbFile</string>
+								<key>type</key>
+								<string>CCBFile</string>
+								<key>value</key>
+								<string>MainCharacter.ccb</string>
+							</dict>
+						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -687,7 +689,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/buttons-49@4x.png</string>
+							<string>Game Assets/buttonsNormalState.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -711,7 +713,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/buttons-50@4x.png</string>
+							<string>Game Assets/buttonsPressed.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1026,7 +1028,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/buttons-49@4x.png</string>
+							<string>Game Assets/buttonsNormalState.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1050,7 +1052,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Game Assets/buttons-50@4x.png</string>
+							<string>Game Assets/buttonsPressed.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1237,8 +1239,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

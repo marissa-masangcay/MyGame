@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
-//import Cocoa
+
 
 enum State {
     case Jumping
@@ -18,11 +18,11 @@ enum State {
 class Character: CCSprite {
     
     var state: State = .Idle
-    let jumpPower: CGFloat = 2000
+    let jumpPower: CGFloat = 1500
     
     func jump()
     {
-        physicsBody.applyImpulse(ccp(0.0, jumpPower))
+        physicsBody.applyImpulse(ccp(1, jumpPower))
         animationManager.runAnimationsForSequenceNamed("jump")
     }
     

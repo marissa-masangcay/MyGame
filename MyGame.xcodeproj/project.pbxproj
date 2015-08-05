@@ -16,6 +16,7 @@
 		494FD4A81B6C2BF0001041FA /* Obstacle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4A71B6C2BF0001041FA /* Obstacle.swift */; };
 		494FD4AB1B6FF9E0001041FA /* FullHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AA1B6FF9E0001041FA /* FullHeart.swift */; };
 		494FD4AD1B6FFA28001041FA /* HalfHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AC1B6FFA27001041FA /* HalfHeart.swift */; };
+		494FD4AF1B714D27001041FA /* Spikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AE1B714D27001041FA /* Spikes.swift */; };
 		4984920D1B696E9500785F75 /* LevelSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920C1B696E9500785F75 /* LevelSelect.swift */; };
 		4984920F1B69952600785F75 /* Gamestate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920E1B69952600785F75 /* Gamestate.swift */; };
 		4984921A1B6AE6C700785F75 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498492191B6AE6C700785F75 /* GameOver.swift */; };
@@ -169,6 +170,7 @@
 		494FD4A71B6C2BF0001041FA /* Obstacle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obstacle.swift; sourceTree = "<group>"; };
 		494FD4AA1B6FF9E0001041FA /* FullHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullHeart.swift; sourceTree = "<group>"; };
 		494FD4AC1B6FFA27001041FA /* HalfHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfHeart.swift; sourceTree = "<group>"; };
+		494FD4AE1B714D27001041FA /* Spikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spikes.swift; sourceTree = "<group>"; };
 		4984920C1B696E9500785F75 /* LevelSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
 		4984920E1B69952600785F75 /* Gamestate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gamestate.swift; sourceTree = "<group>"; };
 		498492191B6AE6C700785F75 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				7A046D7519E84C36004C4763 /* MainScene.swift */,
 				4918480E1B5ECE160050539D /* Gameplay.swift */,
+				494FD4AE1B714D27001041FA /* Spikes.swift */,
 				494FD4A71B6C2BF0001041FA /* Obstacle.swift */,
 				494FD4AC1B6FFA27001041FA /* HalfHeart.swift */,
 				494FD4AA1B6FF9E0001041FA /* FullHeart.swift */,
@@ -854,6 +857,7 @@
 				4918480F1B5ECE160050539D /* Gameplay.swift in Sources */,
 				4984921A1B6AE6C700785F75 /* GameOver.swift in Sources */,
 				494FD4A81B6C2BF0001041FA /* Obstacle.swift in Sources */,
+				494FD4AF1B714D27001041FA /* Spikes.swift in Sources */,
 				7A046D7919E84ED5004C4763 /* MainScene.swift in Sources */,
 				494FD4AD1B6FFA28001041FA /* HalfHeart.swift in Sources */,
 				494FD4AB1B6FF9E0001041FA /* FullHeart.swift in Sources */,

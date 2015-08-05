@@ -13,10 +13,8 @@ class Level: CCNode {
     weak var flag: CCNode!
     weak var slimeEnemyNode: CCNode!
 
-    var levelNumber = 0
-    var timeOfLevel = 0
+    var levelNumber: Int = Gamestate.currentLevel
+    var timeOfLevel: Float = 10
     
-    func didLoadFromCCB() {
-        flag.physicsBody.sensor = true
-    }
+
 }

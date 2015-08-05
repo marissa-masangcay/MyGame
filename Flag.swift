@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
-//import Cocoa
+
 
 class Flag: CCSprite {
 
