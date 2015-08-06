@@ -21,6 +21,7 @@ class Gameplay: CCNode {
     weak var levelNode: CCNode!
     weak var contentNode: CCNode!
     weak var timerLabel: CCLabelTTF!
+    weak var playNextButton: CCButton?
    
 
     var mainCharacter: Character!
@@ -31,15 +32,15 @@ class Gameplay: CCNode {
     var timer = NSTimer()
     var gameOverTimer = NSTimer()
 
-    let spawnRate: Double = 2.0
+    var spawnRate: Double = 2.0
     var characterRemoved: Bool = false
     
     
     var currentLevelGamePlay: Int = 1
-    var levelToContinue: Int = 1
     
     
-    var levelTimes : [Int] = [10, 7, 13]
+    var levelTimes : [Int] = [10, 10, 15, 13, 10, 9]
+    var spawnRates: [Double] = [5.0, 4.0, 4.0, 4.0, 4.0, 4.0]
     
     
     let manager = CMMotionManager()
@@ -80,6 +81,7 @@ class Gameplay: CCNode {
         var levelLoaded: String = ("Levels/Level\(Gamestate.currentLevel)")
         
         timeLeft = Float(levelTimes[Gamestate.currentLevel-1])
+        spawnRate = Double(spawnRates[Gamestate.currentLevel-1])
         
         currentLevel = CCBReader.load(levelLoaded) as! Level
         currentLevel!.position = ccp(0, 0)
@@ -124,6 +126,10 @@ class Gameplay: CCNode {
     {
         var scene = CCBReader.loadAsScene("LevelCompleted")
         CCDirector.sharedDirector().presentScene(scene)
+        if Gamestate.currentLevel == levelTimes.count
+        {
+            playNextButton!.visible = false
+        }
     }
     
     
@@ -212,8 +218,6 @@ class Gameplay: CCNode {
             mainCharacter.position = CGPoint(x: mainCharacter.position.x, y: levelNode.boundingBox().height-35)
         }
         
-//        println("time left \(timeLeft)")
-//        println()
         
     }
    
@@ -231,10 +235,6 @@ class Gameplay: CCNode {
                 var attitude = motion.attitude
                 
                 
-//                println("roll: \(attitude.roll)")
-//                println("velocity: \(self.mainCharacter.physicsBody.velocity)")
-//                println()
-                
                 //TODO: Fine tune multiplier and clamping parameters
                 let multiplier: Double = 600.00
                 let velocityY = self.mainCharacter.physicsBody.velocity.y
@@ -244,7 +244,10 @@ class Gameplay: CCNode {
                 let maxVelocityX: Float = 400.00
                 velocityX = clampf(Float(velocityX), minVelocityX, maxVelocityX)
                 
+
+                
                 self.mainCharacter.physicsBody.velocity = ccp(CGFloat(velocityX), velocityY)
+                
             })
         }
     }
@@ -263,7 +266,11 @@ extension Gameplay: CCPhysicsCollisionDelegate {
             slimeEnemyRemoved(slime)
         }
         else{
+            gameOver = true
             characterRemoved(character)
+            gamePhysicsNode.space.addPostStepBlock({ () -> Void in
+                self.characterRemoved(character)
+                }, key: character)
             scheduleOnce("triggerGameOver", delay: 0.5)
             
         }
@@ -272,7 +279,10 @@ extension Gameplay: CCPhysicsCollisionDelegate {
     
     func ccPhysicsCollisionBegin(pair: CCPhysicsCollisionPair!, obstacle: Obstacle!, character: Character!) -> ObjCBool
     {
-        characterRemoved(character)
+        gameOver = true
+        gamePhysicsNode.space.addPostStepBlock({ () -> Void in
+            self.characterRemoved(character)
+            }, key: character)
         scheduleOnce("triggerGameOver", delay: 0.5)
         return true
     }
@@ -290,7 +300,7 @@ extension Gameplay: CCPhysicsCollisionDelegate {
     {
         timeLeft += Float(1.0)
         character.animationManager.runAnimationsForSequenceNamed("jump")
-        halfHeart.removeFromParent()
+        levelNode.removeChild(halfHeart)
         return true
     }
     
@@ -299,16 +309,25 @@ extension Gameplay: CCPhysicsCollisionDelegate {
     {
         timeLeft += Float(2.0)
         character.animationManager.runAnimationsForSequenceNamed("jump")
-        fullHeart.removeFromParent()
+        levelNode.removeChild(fullHeart)
         return true
     }
     
     
     func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, spikes: Spikes!, character: Character!)
     {
+        gameOver = true
         characterRemoved(character)
+        gamePhysicsNode.space.addPostStepBlock({ () -> Void in
+            self.characterRemoved(character)
+            }, key: character)
         scheduleOnce("triggerGameOver", delay: 0.5)
     }
+    
+//    func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, obstacle: Obstacle!, wildcard: CCNode)
+//    {
+//        gamePhysicsNode.removeChild(obstacle)
+//    }
     
     
     

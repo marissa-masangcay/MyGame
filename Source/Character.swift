@@ -22,7 +22,7 @@ class Character: CCSprite {
     
     func jump()
     {
-        physicsBody.applyImpulse(ccp(1, jumpPower))
+        physicsBody.applyImpulse(ccp(0.0, jumpPower))
         animationManager.runAnimationsForSequenceNamed("jump")
     }
     

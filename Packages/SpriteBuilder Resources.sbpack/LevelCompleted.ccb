@@ -374,7 +374,7 @@
 						<key>displayName</key>
 						<string>playNextButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>playNextButton</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
