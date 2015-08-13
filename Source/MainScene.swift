@@ -6,6 +6,13 @@ import UIKit
 class MainScene: CCNode
 {
     
+     var mainCharacter: Character!
+    
+    override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!)
+    {
+        mainCharacter.jump()
+    }
+    
     func play()
     {
         let gameplayScene = CCBReader.loadAsScene("Gameplay")

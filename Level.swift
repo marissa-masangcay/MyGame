@@ -16,5 +16,7 @@ class Level: CCNode {
     var levelNumber: Int = Gamestate.currentLevel
     var timeOfLevel: Float = 10
     
+    
+    
 
 }

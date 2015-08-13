@@ -21,7 +21,6 @@ class Gameplay: CCNode {
     weak var levelNode: CCNode!
     weak var contentNode: CCNode!
     weak var timerLabel: CCLabelTTF!
-    weak var playNextButton: CCButton?
    
 
     var mainCharacter: Character!
@@ -39,8 +38,9 @@ class Gameplay: CCNode {
     var currentLevelGamePlay: Int = 1
     
     
-    var levelTimes : [Int] = [10, 10, 15, 13, 10, 9]
-    var spawnRates: [Double] = [5.0, 4.0, 4.0, 4.0, 4.0, 4.0]
+    var levelTimes : [Int] = [10, 10, 15, 13, 10, 9, 10, 15, 7, 10, 5, 50, 30, 40, 40]
+    var spawnRates: [Double] = [5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.0, 2.5, 1.0, 1.0, 0.5, 2.0, 1.0, 2.0, 2.0]
+    var levelCompleted: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     
     
     let manager = CMMotionManager()
@@ -70,6 +70,7 @@ class Gameplay: CCNode {
         loadLevel()
         
         self.schedule("spawnNewObstacles", interval: spawnRate)
+        
         
 
     }
@@ -107,6 +108,8 @@ class Gameplay: CCNode {
     
     
     func triggerGameOver() {
+        
+        gamePhysicsNode.removeAllChildren()
         var scene = CCBReader.loadAsScene("GameOver")
         CCDirector.sharedDirector().presentScene(scene)
         
@@ -124,12 +127,13 @@ class Gameplay: CCNode {
 
     func triggerLevelCompleted()
     {
+//        if Gamestate.currentLevel == levelTimes.count
+//        {
+//            LevelCompleted.playNextButton!.visible = false
+//        }
+        levelCompleted[Gamestate.currentLevel-1] = true
         var scene = CCBReader.loadAsScene("LevelCompleted")
         CCDirector.sharedDirector().presentScene(scene)
-        if Gamestate.currentLevel == levelTimes.count
-        {
-            playNextButton!.visible = false
-        }
     }
     
     
@@ -188,7 +192,7 @@ class Gameplay: CCNode {
         if gameOver { return }
         
         timeLeft -= Float(delta)
-        if timeLeft < 1 {
+        if timeLeft == 0 {
             triggerGameOver()
         }
         
@@ -213,10 +217,10 @@ class Gameplay: CCNode {
             mainCharacter.position = CGPoint(x: levelNode.boundingBox().width, y: mainCharacter.position.y)
         }
         
-        if(newY>levelNode.boundingBox().height)
-        {
-            mainCharacter.position = CGPoint(x: mainCharacter.position.x, y: levelNode.boundingBox().height-35)
-        }
+//        if(newY>levelNode.boundingBox().height)
+//        {
+//            mainCharacter.position = CGPoint(x: mainCharacter.position.x, y: levelNode.boundingBox().height-35)
+//        }
         
         
     }

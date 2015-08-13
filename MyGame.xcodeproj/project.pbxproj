@@ -17,6 +17,7 @@
 		494FD4AB1B6FF9E0001041FA /* FullHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AA1B6FF9E0001041FA /* FullHeart.swift */; };
 		494FD4AD1B6FFA28001041FA /* HalfHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AC1B6FFA27001041FA /* HalfHeart.swift */; };
 		494FD4AF1B714D27001041FA /* Spikes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494FD4AE1B714D27001041FA /* Spikes.swift */; };
+		494FD4BD1B7D50B2001041FA /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 494FD4BC1B7D50B2001041FA /* images.xcassets */; };
 		4984920D1B696E9500785F75 /* LevelSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920C1B696E9500785F75 /* LevelSelect.swift */; };
 		4984920F1B69952600785F75 /* Gamestate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4984920E1B69952600785F75 /* Gamestate.swift */; };
 		4984921A1B6AE6C700785F75 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498492191B6AE6C700785F75 /* GameOver.swift */; };
@@ -171,6 +172,7 @@
 		494FD4AA1B6FF9E0001041FA /* FullHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullHeart.swift; sourceTree = "<group>"; };
 		494FD4AC1B6FFA27001041FA /* HalfHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HalfHeart.swift; sourceTree = "<group>"; };
 		494FD4AE1B714D27001041FA /* Spikes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spikes.swift; sourceTree = "<group>"; };
+		494FD4BC1B7D50B2001041FA /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		4984920C1B696E9500785F75 /* LevelSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
 		4984920E1B69952600785F75 /* Gamestate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gamestate.swift; sourceTree = "<group>"; };
 		498492191B6AE6C700785F75 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				491848041B5EC2410050539D /* Character.swift */,
 				4984920E1B69952600785F75 /* Gamestate.swift */,
 				491848101B5EF7BD0050539D /* Level.swift */,
+				494FD4BC1B7D50B2001041FA /* images.xcassets */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -764,6 +767,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
+				494FD4BD1B7D50B2001041FA /* images.xcassets in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
@@ -1147,6 +1151,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1182,6 +1188,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

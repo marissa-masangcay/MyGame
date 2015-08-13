@@ -16,10 +16,18 @@ class LevelSelect: CCNode{
     
     
     func loadLevel(sender: CCButton) {
+        Gamestate.resetGame = false
+        Gamestate.startFromBeginning = false
         let buttonName = sender.name
         Gamestate.currentLevel = buttonName.toInt()!
         var gameplay = CCBReader.loadAsScene("Gameplay")
         CCDirector.sharedDirector().presentScene(gameplay)
+    }
+    
+    func returnToMenu()
+    {
+        let mainScene = CCBReader.loadAsScene("MainScene")
+        CCDirector.sharedDirector().presentScene(mainScene)
     }
     
     

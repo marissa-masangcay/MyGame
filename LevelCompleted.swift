@@ -12,6 +12,8 @@ import UIKit
 
 class LevelCompleted: CCNode{
     
+    static var playNextButton: CCButton?
+    
     func playNextLevel()
     {
         Gamestate.currentLevel++
