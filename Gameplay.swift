@@ -38,8 +38,8 @@ class Gameplay: CCNode {
     var currentLevelGamePlay: Int = 1
     
     
-    var levelTimes : [Int] = [10, 10, 15, 13, 10, 9, 10, 15, 7, 10, 5, 50, 30, 40, 40]
-    var spawnRates: [Double] = [5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.0, 2.5, 1.0, 1.0, 0.5, 2.0, 1.0, 2.0, 2.0]
+    var levelTimes : [Int] = [12, 11, 12, 13, 10, 11, 15, 20, 14, 22, 7, 50, 30, 50, 50]
+    var spawnRates: [Double] = [5.0, 2.0, 3.0, 4.0, 4.0, 4.0, 3.0, 2.5, 1.0, 1.0, 0.5, 2.0, 1.0, 2.0, 2.0]
     var levelCompleted: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     
     
@@ -66,8 +66,8 @@ class Gameplay: CCNode {
         gamePhysicsNode.debugDraw = false
         userInteractionEnabled = true
     
-        setupDeviceMotion()
-        loadLevel()
+//        setupDeviceMotion()
+//        loadLevel()
         
         self.schedule("spawnNewObstacles", interval: spawnRate)
         
@@ -101,6 +101,9 @@ class Gameplay: CCNode {
     {
         super.onEnter()
         
+        setupDeviceMotion()
+        loadLevel()
+        
         contentSizeInPoints = currentLevel!.contentSizeInPoints
         let actionFollow = CCActionFollow(target: mainCharacter, worldBoundary: levelNode.boundingBox())
         runAction(actionFollow)
@@ -110,15 +113,18 @@ class Gameplay: CCNode {
     func triggerGameOver() {
         
         gamePhysicsNode.removeAllChildren()
+        
         var scene = CCBReader.loadAsScene("GameOver")
         CCDirector.sharedDirector().presentScene(scene)
         
         Gamestate.resetGame = false
         Gamestate.startFromBeginning = false
+        
     }
     
     
     func restart() {
+        gamePhysicsNode.removeAllChildren()
         Gamestate.currentLevel = Gamestate.currentLevel
         var scene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().presentScene(scene)
@@ -127,10 +133,11 @@ class Gameplay: CCNode {
 
     func triggerLevelCompleted()
     {
-//        if Gamestate.currentLevel == levelTimes.count
-//        {
-//            LevelCompleted.playNextButton!.visible = false
-//        }
+        if Gamestate.currentLevel == levelTimes.count
+        {
+            LevelCompleted.playNextButton!.removeFromParent()
+        }
+        gamePhysicsNode.removeAllChildren()
         levelCompleted[Gamestate.currentLevel-1] = true
         var scene = CCBReader.loadAsScene("LevelCompleted")
         CCDirector.sharedDirector().presentScene(scene)
@@ -328,10 +335,13 @@ extension Gameplay: CCPhysicsCollisionDelegate {
         scheduleOnce("triggerGameOver", delay: 0.5)
     }
     
-//    func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, obstacle: Obstacle!, wildcard: CCNode)
-//    {
-//        gamePhysicsNode.removeChild(obstacle)
-//    }
+    func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair!, obstacle: Obstacle!, wildcard: CCNode)
+    {
+        gamePhysicsNode.space.addPostStepBlock({ () -> Void in
+            self.gamePhysicsNode.removeChild(obstacle)
+            }, key: obstacle)
+        //gamePhysicsNode.removeChild(obstacle)
+    }
     
     
     

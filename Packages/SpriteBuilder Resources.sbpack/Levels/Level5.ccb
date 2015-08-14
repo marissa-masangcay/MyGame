@@ -153,8 +153,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2685,7 +2683,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>107.84410858154297</real>
+							<real>103.80000305175781</real>
 							<real>1588.9317626953125</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -2714,6 +2712,8 @@
 						<string>HalfHeart.ccb</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

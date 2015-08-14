@@ -25,4 +25,10 @@ class MainScene: CCNode
         CCDirector.sharedDirector().presentScene(levelSelectScene)
     }
     
+    func viewGuidelines()
+    {
+        let guidelinesScene = CCBReader.loadAsScene("Guidelines")
+        CCDirector.sharedDirector().presentScene(guidelinesScene)
+    }
+    
 }

@@ -15,7 +15,6 @@ class GameOver: CCNode{
     func restartLevel()
     {
         Gamestate.resetGame = true
-        //Gamestate.currentLevel = Gamestate.currentLevel
         var gameplay = CCBReader.loadAsScene("Gameplay")
         CCDirector.sharedDirector().presentScene(gameplay)
     
@@ -26,4 +25,7 @@ class GameOver: CCNode{
         let mainScene = CCBReader.loadAsScene("MainScene")
         CCDirector.sharedDirector().presentScene(mainScene)
     }
+    
 }
+
+

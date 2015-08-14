@@ -21,7 +21,7 @@ class LevelCompleted: CCNode{
         CCDirector.sharedDirector().presentScene(gameplay)
     }
     
-    func restartLevel()
+    func replayLevel()
     {
         var gameplay = CCBReader.loadAsScene("Gameplay")
         CCDirector.sharedDirector().presentScene(gameplay)
@@ -33,3 +33,5 @@ class LevelCompleted: CCNode{
         CCDirector.sharedDirector().presentScene(mainScene)
     }
 }
+
+

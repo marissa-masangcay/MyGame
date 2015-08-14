@@ -1534,7 +1534,7 @@
 								<string>Block</string>
 								<key>value</key>
 								<array>
-									<string>restartLevel</string>
+									<string>replayLevel</string>
 									<integer>1</integer>
 								</array>
 							</dict>
